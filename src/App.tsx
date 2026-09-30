@@ -208,7 +208,7 @@ function Logo() {
   return (
     <div className="flex items-center gap-3">
       <img
-        src="/Website logo.PNG"
+        src="/logo.png"
         alt="ColdGuard Logo"
         className="size-10 shrink-0 rounded-xl object-contain"
       />
