@@ -30,6 +30,7 @@ import {
   Zap,
   type LucideIcon,
 } from "lucide-react";
+import coldGuardLogo from "./assets/logo.png";
 import { onValue, ref, set } from "firebase/database";
 import { Toaster, toast } from "react-hot-toast";
 import { db } from "./firebase";
@@ -208,9 +209,9 @@ function Logo() {
   return (
     <div className="flex items-center gap-3">
       <img
-        src="/logo.png"
+        src={coldGuardLogo}
         alt="ColdGuard Logo"
-        className="size-10 shrink-0 rounded-xl object-contain"
+        className="w-10 h-10 object-contain rounded-xl shrink-0"
       />
       <div>
         <div className="text-lg font-extrabold tracking-tight text-slate-950">
