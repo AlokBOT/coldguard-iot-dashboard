@@ -1,0 +1,11 @@
+{
+  "title": "ColdGuard — Cold Storage Telemetry",
+  "description": "Monitor and manage cold storage conditions with real-time telemetry, ensuring food safety and reducing spoilage through automated alerts and data tracking.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
