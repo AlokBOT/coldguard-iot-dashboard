@@ -60,14 +60,21 @@ export function useTelemetry(deviceId: string = 'device1') {
           },
         ]);
 
-        // 60-second offline threshold check
-        const ageSeconds = (Date.now() - Number(updated)) / 1000;
-        setIsOffline(ageSeconds > 60);
       }
     });
 
     return () => unsubscribe();
   }, [deviceId]);
+
+  useEffect(() => {
+    const checkHeartbeat = () => {
+      setIsOffline(Date.now() - telemetry.updatedAt > 60_000);
+    };
+
+    checkHeartbeat();
+    const intervalId = window.setInterval(checkHeartbeat, 1000);
+    return () => window.clearInterval(intervalId);
+  }, [telemetry.updatedAt]);
 
   return { telemetry, history, isOffline };
 }
