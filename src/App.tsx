@@ -1309,152 +1309,252 @@ function Architecture() {
   );
 }
 
-const TEAM_MEMBERS = [
+interface TeamMember {
+  name: string;
+  role: string;
+  branch: string;
+  course: string;
+  year: string;
+  image?: string;
+  tagColor?: string;
+}
+
+const TEAM_MEMBERS: TeamMember[] = [
+  {
+    name: "Suraj Singh",
+    role: "Team Lead",
+    course: "B.Tech",
+    branch: "Computer Science (AI & DS)",
+    year: "3rd Year (2024–2028)",
+    tagColor: "bg-amber-500/10 text-amber-700 border-amber-200",
+  },
   {
     name: "Alok Kumar",
-    role: "Full-Stack & IoT Lead",
-    course: "B.Tech Computer Science (AI & DS)",
-    year: "3rd Year (2024-2028)",
-    image: "",
+    role: "Frontend & Backend Developer",
+    course: "B.Tech",
+    branch: "Computer Science (AI & DS)",
+    year: "3rd Year (2024–2028)",
+    tagColor: "bg-blue-500/10 text-blue-700 border-blue-200",
   },
   {
-    name: "Team Member 2",
-    role: "Hardware Specialist",
-    course: "B.Tech Computer Science",
-    year: "3rd Year",
-    image: "",
+    name: "Priyanshu Singh",
+    role: "IoT & Sensor Integration",
+    course: "B.Tech",
+    branch: "Computer Science (AI & DS)",
+    year: "3rd Year (2024–2028)",
+    tagColor: "bg-cyan-500/10 text-cyan-700 border-cyan-200",
   },
   {
-    name: "Team Member 3",
-    role: "UI/UX & Testing",
-    course: "B.Tech Computer Science",
-    year: "3rd Year",
-    image: "",
+    name: "Pranjal Sharma",
+    role: "Business Analyst",
+    course: "B.Tech",
+    branch: "Computer Science (AI & DS)",
+    year: "3rd Year (2024–2028)",
+    tagColor: "bg-emerald-500/10 text-emerald-700 border-emerald-200",
+  },
+  {
+    name: "Ashwani Yadav",
+    role: "Presentation",
+    course: "B.Tech",
+    branch: "Computer Science (AI & DS)",
+    year: "3rd Year (2024–2028)",
+    tagColor: "bg-purple-500/10 text-purple-700 border-purple-200",
+  },
+  {
+    name: "Jivesh Yadav",
+    role: "Banner & Poster Design",
+    course: "B.Tech",
+    branch: "Computer Science (AI & DS)",
+    year: "3rd Year (2024–2028)",
+    tagColor: "bg-indigo-500/10 text-indigo-700 border-indigo-200",
+  },
+  {
+    name: "Abhinav Yadav",
+    role: "Feedback Form Generator",
+    course: "B.Tech",
+    branch: "Computer Science (AI & DS)",
+    year: "3rd Year (2024–2028)",
+    tagColor: "bg-teal-500/10 text-teal-700 border-teal-200",
+  },
+  {
+    name: "Khushi Keshari",
+    role: "Synopsis & Documentation",
+    course: "B.Tech",
+    branch: "Computer Science (AI & DS)",
+    year: "3rd Year (2024–2028)",
+    tagColor: "bg-rose-500/10 text-rose-700 border-rose-200",
+  },
+  {
+    name: "Sania Siddiqui",
+    role: "Synopsis & Documentation",
+    course: "B.Tech",
+    branch: "Computer Science (AI & DS)",
+    year: "3rd Year (2024–2028)",
+    tagColor: "bg-pink-500/10 text-pink-700 border-pink-200",
   },
 ];
 
-function AboutUs() {
+export const AboutUs = () => {
   return (
     <section
-      id="about"
-      className="border-t border-slate-200 bg-slate-50/50 py-24"
+      id="about-us"
+      className="relative border-t border-slate-200 bg-gradient-to-b from-slate-50 to-slate-100/70 py-20"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-16 text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
-            Meet Team Forge-X
+        <div className="mx-auto mb-16 max-w-2xl text-center">
+          <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 ring-1 ring-inset ring-blue-200">
+            <span>Team Forge-X</span>
+          </div>
+          <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+            Meet the Builders Behind ColdGuard
           </h2>
-          <p className="mt-4 text-lg text-slate-600">
-            The developers and engineers behind the ColdGuard IoT telemetry
-            system.
+          <p className="mt-3 text-base text-slate-600 sm:text-lg">
+            A multidisciplinary team engineering smart, real-time IoT monitoring
+            solutions to prevent cold-chain spoilage.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {TEAM_MEMBERS.map((member) => (
-            <article
-              key={member.name}
-              className="group relative flex flex-col items-center rounded-2xl bg-white p-8 text-center shadow-sm ring-1 ring-slate-200 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl motion-reduce:transform-none motion-reduce:transition-none"
-            >
-              <div
-                aria-hidden="true"
-                className="mb-6 flex size-24 items-center justify-center overflow-hidden rounded-full bg-blue-100 text-3xl font-bold text-blue-600 shadow-md ring-4 ring-white"
-              >
-                {member.image ? (
-                  <img
-                    src={member.image}
-                    alt=""
-                    className="size-full object-cover"
-                    loading="lazy"
-                  />
-                ) : (
-                  member.name
-                    .split(/\s+/)
-                    .map((part) => part.charAt(0))
-                    .join("")
-                    .slice(0, 2)
-                )}
-              </div>
-              <h3 className="text-xl font-semibold text-slate-950">
-                {member.name}
-              </h3>
-              <p className="mb-4 mt-1 text-sm font-medium text-blue-600">
-                {member.role}
-              </p>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+          {TEAM_MEMBERS.map((member) => {
+            const initials = member.name
+              .split(/\s+/)
+              .map((part) => part.charAt(0))
+              .join("")
+              .toUpperCase();
 
-              <div className="w-full space-y-3 rounded-xl bg-slate-50 p-4 text-left text-sm text-slate-600">
-                <div className="flex justify-between gap-3">
-                  <span className="shrink-0 font-medium text-slate-900">
-                    Course:
-                  </span>
-                  <span className="break-words text-right">{member.course}</span>
+            return (
+              <article
+                key={member.name}
+                className="group relative h-full rounded-2xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl motion-reduce:transform-none motion-reduce:transition-none"
+              >
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute -inset-px rounded-2xl bg-gradient-to-br from-blue-500 via-cyan-400 to-indigo-500 opacity-0 blur-sm transition-opacity duration-300 group-hover:opacity-60 motion-reduce:transition-none"
+                />
+                <div className="relative flex h-full flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 transition-colors duration-300 group-hover:border-transparent motion-reduce:transition-none">
+                  <div>
+                    <div className="mb-4 flex items-center gap-4">
+                      <div className="flex size-14 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-700 text-lg font-bold text-white shadow-sm ring-2 ring-white">
+                        {member.image ? (
+                          <img
+                            src={member.image}
+                            alt={member.name}
+                            className="size-full object-cover"
+                            loading="lazy"
+                          />
+                        ) : (
+                          <span aria-label={`${member.name} initials`}>
+                            {initials}
+                          </span>
+                        )}
+                      </div>
+                      <div className="min-w-0">
+                        <h3 className="truncate text-base font-bold text-slate-900 transition-colors group-hover:text-blue-600">
+                          {member.name}
+                        </h3>
+                        <span
+                          className={`mt-1 inline-block max-w-full rounded-full border px-2.5 py-0.5 text-xs font-medium leading-5 ${member.tagColor ?? "bg-slate-100 text-slate-700 border-slate-200"}`}
+                        >
+                          {member.role}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-4 space-y-2 border-t border-slate-100 pt-3 text-xs text-slate-500">
+                    <div className="flex items-start justify-between gap-3">
+                      <span className="shrink-0 font-semibold text-slate-700">
+                        Course & Branch
+                      </span>
+                      <span className="min-w-0 break-words text-right font-medium text-slate-600">
+                        {member.course} ({member.branch})
+                      </span>
+                    </div>
+                    <div className="flex items-start justify-between gap-3">
+                      <span className="shrink-0 font-semibold text-slate-700">
+                        Year / Batch
+                      </span>
+                      <span className="text-right font-medium text-slate-600">
+                        {member.year}
+                      </span>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex justify-between gap-3">
-                  <span className="shrink-0 font-medium text-slate-900">
-                    Batch:
-                  </span>
-                  <span className="text-right">{member.year}</span>
-                </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
   );
-}
+};
 
 function Footer() {
   return (
-    <footer className="bg-slate-950 text-white">
-      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="grid gap-10 border-b border-slate-800 pb-10 md:grid-cols-2 md:items-end">
-          <div>
-            <Logo />
-            <p className="mt-5 max-w-xl text-sm leading-6 text-slate-400">
-              An academic IoT systems project exploring real-time cold storage
-              telemetry, threshold alerting, and spoilage prevention.
-            </p>
-            <div className="mt-5 flex flex-wrap gap-2">
-              <Badge variant="dark">React + Vite</Badge>
-              <Badge variant="dark">ESP32</Badge>
-              <Badge variant="dark">Firebase</Badge>
-              <Badge variant="dark">Advanced MVP</Badge>
+    <>
+      <AboutUs />
+      <footer className="bg-slate-950 text-white">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <div className="grid gap-10 border-b border-slate-800 pb-10 md:grid-cols-2 md:items-end">
+            <div>
+              <Logo />
+              <p className="mt-5 max-w-xl text-sm leading-6 text-slate-400">
+                An academic IoT systems project exploring real-time cold storage
+                telemetry, threshold alerting, and spoilage prevention.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                <Badge variant="dark">React + Vite</Badge>
+                <Badge variant="dark">ESP32</Badge>
+                <Badge variant="dark">Firebase</Badge>
+                <Badge variant="dark">Advanced MVP</Badge>
+              </div>
+            </div>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <span className="inline-flex" tabIndex={0}>
+                  <Button variant="outline" disabled>
+                    <GitBranch className="size-4" aria-hidden="true" />
+                    Repository coming soon
+                    <ExternalLink className="size-3.5" />
+                  </Button>
+                </span>
+              </TooltipTrigger>
+              <TooltipContent>
+                Repository URL has not been provided.
+              </TooltipContent>
+            </Tooltip>
+          </div>
+          <div className="flex flex-col gap-4 pt-8 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+            <span>
+              © {new Date().getFullYear()} ColdGuard. Academic prototype.
+            </span>
+            <div className="flex flex-wrap gap-2">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => scrollTo("overview")}
+              >
+                Overview
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => scrollTo("hardware")}
+              >
+                Hardware
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => scrollTo("architecture")}
+              >
+                Architecture
+              </Button>
             </div>
           </div>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <span className="inline-flex" tabIndex={0}>
-                <Button variant="outline" disabled>
-                  <GitBranch className="size-4" aria-hidden="true" />
-                  Repository coming soon
-                  <ExternalLink className="size-3.5" />
-                </Button>
-              </span>
-            </TooltipTrigger>
-            <TooltipContent>Repository URL has not been provided.</TooltipContent>
-          </Tooltip>
         </div>
-        <div className="flex flex-col gap-4 pt-8 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
-          <span>© {new Date().getFullYear()} ColdGuard. Academic prototype.</span>
-          <div className="flex flex-wrap gap-2">
-            <Button variant="ghost" size="sm" onClick={() => scrollTo("overview")}>
-              Overview
-            </Button>
-            <Button variant="ghost" size="sm" onClick={() => scrollTo("hardware")}>
-              Hardware
-            </Button>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => scrollTo("architecture")}
-            >
-              Architecture
-            </Button>
-          </div>
-        </div>
-      </div>
-    </footer>
+      </footer>
+    </>
   );
 }
 
@@ -1815,7 +1915,6 @@ export default function App() {
           />
           <Architecture />
         </main>
-        <AboutUs />
         <Footer />
       </div>
     </TooltipProvider>
