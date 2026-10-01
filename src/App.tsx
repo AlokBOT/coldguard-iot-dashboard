@@ -1230,7 +1230,7 @@ function Architecture() {
     {
       title: "ESP32 Hardware",
       label: "Sense & transmit",
-      detail: "DHT • DS18B20 • MQ-135",
+      detail: "DHT11 • MQ-135",
       icon: Microchip,
     },
     {
