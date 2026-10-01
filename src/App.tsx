@@ -1309,6 +1309,101 @@ function Architecture() {
   );
 }
 
+const TEAM_MEMBERS = [
+  {
+    name: "Alok Kumar",
+    role: "Full-Stack & IoT Lead",
+    course: "B.Tech Computer Science (AI & DS)",
+    year: "3rd Year (2024-2028)",
+    image: "",
+  },
+  {
+    name: "Team Member 2",
+    role: "Hardware Specialist",
+    course: "B.Tech Computer Science",
+    year: "3rd Year",
+    image: "",
+  },
+  {
+    name: "Team Member 3",
+    role: "UI/UX & Testing",
+    course: "B.Tech Computer Science",
+    year: "3rd Year",
+    image: "",
+  },
+];
+
+function AboutUs() {
+  return (
+    <section
+      id="about"
+      className="border-t border-slate-200 bg-slate-50/50 py-24"
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-16 text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
+            Meet Team Forge-X
+          </h2>
+          <p className="mt-4 text-lg text-slate-600">
+            The developers and engineers behind the ColdGuard IoT telemetry
+            system.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {TEAM_MEMBERS.map((member) => (
+            <article
+              key={member.name}
+              className="group relative flex flex-col items-center rounded-2xl bg-white p-8 text-center shadow-sm ring-1 ring-slate-200 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl motion-reduce:transform-none motion-reduce:transition-none"
+            >
+              <div
+                aria-hidden="true"
+                className="mb-6 flex size-24 items-center justify-center overflow-hidden rounded-full bg-blue-100 text-3xl font-bold text-blue-600 shadow-md ring-4 ring-white"
+              >
+                {member.image ? (
+                  <img
+                    src={member.image}
+                    alt=""
+                    className="size-full object-cover"
+                    loading="lazy"
+                  />
+                ) : (
+                  member.name
+                    .split(/\s+/)
+                    .map((part) => part.charAt(0))
+                    .join("")
+                    .slice(0, 2)
+                )}
+              </div>
+              <h3 className="text-xl font-semibold text-slate-950">
+                {member.name}
+              </h3>
+              <p className="mb-4 mt-1 text-sm font-medium text-blue-600">
+                {member.role}
+              </p>
+
+              <div className="w-full space-y-3 rounded-xl bg-slate-50 p-4 text-left text-sm text-slate-600">
+                <div className="flex justify-between gap-3">
+                  <span className="shrink-0 font-medium text-slate-900">
+                    Course:
+                  </span>
+                  <span className="break-words text-right">{member.course}</span>
+                </div>
+                <div className="flex justify-between gap-3">
+                  <span className="shrink-0 font-medium text-slate-900">
+                    Batch:
+                  </span>
+                  <span className="text-right">{member.year}</span>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
   return (
     <footer className="bg-slate-950 text-white">
@@ -1720,6 +1815,7 @@ export default function App() {
           />
           <Architecture />
         </main>
+        <AboutUs />
         <Footer />
       </div>
     </TooltipProvider>
