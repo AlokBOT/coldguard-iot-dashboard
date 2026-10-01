@@ -940,7 +940,6 @@ function Simulator({
   onToggleAlarm: () => Promise<void>;
 }) {
   const scenario = dynamicScenarios[active];
-  const isCritical = scenario.tone === "critical" || isThermalRunaway;
   const gasRatio =
     limits.gasLimit > 0
       ? Math.min((telemetry.gasPpm / limits.gasLimit) * 100, 100)
@@ -1132,7 +1131,7 @@ function Simulator({
                   </p>
                 </div>
               )}
-              {isCritical && (
+              {telemetry.airTemp > limits.tempLimit && (
                 <div className="mt-5">
                   <Button
                     className={cn(
